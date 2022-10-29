@@ -1,0 +1,68 @@
+﻿@using innowise_task_server.Models
+@model List<FridgeProduct>
+
+@{
+	List<SelectListItem> items = ViewData["productList"] as List<SelectListItem>;
+}
+
+<h2>Редактирование списка продуктов холодильника @Model.FirstOrDefault().Fridge.Name</h2>
+
+
+@using (Html.BeginForm("EditProductsConfirm", "Home", FormMethod.Post)){
+	<a style="margin: 10px 0;" href="javascript:addSelect();">Добавить продукт</a>
+	<table id="formTable">
+		<thead>
+			<tr>
+				<th>Название</th>
+				<th>Количество</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for (int i = 0; i < Model.Count(); i++){
+				<tr class="row">
+					<td>
+						@Html.HiddenFor(model => Model[i].ID)
+						@Html.HiddenFor(model => Model[i].FridgeID)
+					</td>
+					<td>
+						@Html.DropDownListFor(model => Model[i].ProductID, new List<SelectListItem>
+							{new SelectListItem {Value = "", Text = "Выберите модель"}}
+							.Concat(items), new { @class = "form-control"})
+					</td>
+					<td>
+						@Html.EditorFor(m => Model[i].Quantity)
+						<span asp-validation-for="[@i].Quantity" class="text-danger"></span>
+					</td>
+					<td>
+						<form method="post" asp-controller="Home" asp-action="DeleteProduct"
+							onclick="return confirm('Are you sure you want to submit ?')" asp-route-id="@Model[i].ID" asp-route-fridgeId="@Model[i].FridgeID">
+							<input type="submit" value="Удалить" />
+						</form>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+	<input type="submit" value="Submit"/>
+}
+
+<script type="text/javascript" src="../../Scripts/jquery-1.5.1.min.js"></script>
+<script type="text/javascript">
+	// <![CDATA[
+	function addSelect() {
+		const T = document.getElementById('formTable');
+
+		const R = document.querySelectorAll('tbody .row')[0];
+
+		let C = R.cloneNode(true);
+
+		C.childNodes[1].childNodes[1].value = ' ';
+
+		T.appendChild(C);
+	}
+	// ]]></script>
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
