@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "innowise-task-client", "innowise-task-client.csproj", "{73C43C54-48A0-4D5C-AE39-DDBDA9BF4E4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "innowise-task-client", "innowise-task-client.csproj", "{73C43C54-48A0-4D5C-AE39-DDBDA9BF4E4A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "innowise-task-server", "..\innowise-task-server\innowise-task-server.csproj", "{9DAF96EE-EC8C-4062-B8D4-8BCB9CC00D25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "innowise-task-server.Core", "D:\Прога\innowise-task-server.API\innowise-task-server.Core\innowise-task-server.Core.csproj", "{419D2A64-3DD6-47A5-93C3-84A0866F6657}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{73C43C54-48A0-4D5C-AE39-DDBDA9BF4E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73C43C54-48A0-4D5C-AE39-DDBDA9BF4E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73C43C54-48A0-4D5C-AE39-DDBDA9BF4E4A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9DAF96EE-EC8C-4062-B8D4-8BCB9CC00D25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9DAF96EE-EC8C-4062-B8D4-8BCB9CC00D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9DAF96EE-EC8C-4062-B8D4-8BCB9CC00D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9DAF96EE-EC8C-4062-B8D4-8BCB9CC00D25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{419D2A64-3DD6-47A5-93C3-84A0866F6657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{419D2A64-3DD6-47A5-93C3-84A0866F6657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{419D2A64-3DD6-47A5-93C3-84A0866F6657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{419D2A64-3DD6-47A5-93C3-84A0866F6657}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

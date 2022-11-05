@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\innowise-task-server\innowise-task-server.csproj" />
+    <ProjectReference Include="D:\Прога\innowise-task-server.API\innowise-task-server.Core\innowise-task-server.Core.csproj" />
   </ItemGroup>
 
 </Project>

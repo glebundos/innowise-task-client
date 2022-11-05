@@ -1,4 +1,4 @@
-﻿using innowise_task_server.Models;
+﻿using innowise_task_server.Core.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace innowise_task_client.ViewModels

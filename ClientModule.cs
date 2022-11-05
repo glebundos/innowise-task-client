@@ -5,7 +5,7 @@ namespace innowise_task_client
     {
         public static IServiceCollection AddClientModule(this IServiceCollection services)
         {
-            services.AddServerModule();
+            //services.AddServerModule();
             return services;
         }
     }

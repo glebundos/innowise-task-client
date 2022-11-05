@@ -1,6 +1,4 @@
 using innowise_task_client;
-using innowise_task_server.Data;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
