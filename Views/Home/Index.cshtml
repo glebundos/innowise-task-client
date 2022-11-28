@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Домашняя страница";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Домашняя страница</h1>
+    <p class="text-black-50">Главная страница клиент-серверного приложения разработанного на базе ASP.NET</p>
+    <table style="margin:0 auto">
+        <tr>
+            <td>
+                <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Get"><h2 class="display-6">Список холодильников</h2></a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Create"><h2 class="display-6">Создать холодильник</h2></a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Fill"><h2 class="display-6">Заполнить пустоты</h2></a>
+            </td>
+        </tr>
+    </table>
+</div>

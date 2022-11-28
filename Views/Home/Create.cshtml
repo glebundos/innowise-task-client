@@ -1,0 +1,70 @@
+﻿@using innowise_task_client.ViewModels
+@using innowise_task_server.Core.Entities
+@model CreateFridgeVM
+
+@{
+    ViewData["Title"] = "Добавление";
+    IEnumerable<FridgeModel> models = ViewData["Models"] as IEnumerable<FridgeModel>;
+    IEnumerable<Product> products = ViewData["Products"] as IEnumerable<Product>;
+}
+
+<h2>Новый холодильник</h2>
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger"})
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Fridge.Name, "Название")
+                @Html.EditorFor(model => model.Fridge.Name)
+                <span asp-validation-for="Fridge.Name" class="text-danger"></span>
+            </td>
+            <td>
+                @Html.LabelFor(model => model.Fridge.ModelID, "Модель")
+                @Html.DropDownListFor(model => model.Fridge.ModelID, new List<SelectListItem>
+                    {new SelectListItem {Value = "", Text = "Выберите модель"}}
+                    .Concat(models.Select(x => new SelectListItem {Text = x.Name, Value = x.ID.ToString()})), new { @class = "form-control"})
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Fridge.OwnerName, "Владелец")
+                @Html.EditorFor(model => model.Fridge.OwnerName)
+                <span asp-validation-for="Fridge.OwnerName" class="text-danger"></span>
+            </td>
+            <td>
+                @Html.LabelFor(model => model.ProductsIDs, "Список продуктов")
+                @Html.ListBoxFor(model => model.ProductsIDs, Model.Products, new { @class = "listbox" })
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Добавить" />
+}
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"
+      rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
+<script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js" type="text/javascript"></script>
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+<script type="text/javascript">
+    $(function () {
+        $('.listbox').multiselect({
+            includeSelectAllOption: true
+        });
+    });
+</script>
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        };
+    </script>
+}

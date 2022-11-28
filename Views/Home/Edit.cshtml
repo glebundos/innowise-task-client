@@ -1,0 +1,41 @@
+﻿@using innowise_task_server.Core.Entities
+@model Fridge
+
+@{
+    ViewData["Title"] = "Редактирование";
+    IEnumerable<FridgeModel> models = ViewData["Models"] as IEnumerable<FridgeModel>;
+}
+
+<h2>Редактировать холодильник</h2>
+
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.ID)
+        <p>
+            @Html.LabelFor(m => m.Name, "Название")
+            <br />
+            @Html.EditorFor(m => m.Name)
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </p>
+        <p>
+            @Html.LabelFor(m => m.OwnerName, "Владелец")
+            <br />
+            @Html.EditorFor(m => m.OwnerName)
+            <span asp-validation-for="OwnerName" class="text-danger"></span>
+        </p>
+        <p>
+            @Html.LabelFor(model => model.ModelID, "Модель")
+            @Html.DropDownListFor(model => model.ModelID, new List<SelectListItem>
+                {new SelectListItem {Value = "", Text = "Выберите модель"}}
+                .Concat(models.Select(x => new SelectListItem {Text = x.Name, Value = x.ID.ToString()})), new { @class = "form-control"})
+        </p>
+        <p><input type="submit" value="Отправить" /></p>
+    </fieldset>
+}
+
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

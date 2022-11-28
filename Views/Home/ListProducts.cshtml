@@ -1,0 +1,31 @@
+﻿@using innowise_task_server.Core.Entities
+@model IEnumerable<FridgeProduct>
+@{
+    ViewData["Title"] = "Продукты"; 
+}
+
+<h2>Список продуктов холодильника @Model.FirstOrDefault().Fridge.Name</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+    </tr>
+
+    @foreach (var fp in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(item => fp.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(item => fp.Quantity)
+            </td>
+        </tr>
+    }
+    <a class="text-black nav-link" asp-area="" asp-controller="Home" asp-action="EditProducts" asp-route-id="@Model.FirstOrDefault().FridgeID">Редактировать</a>
+</table>
+<a class="text-black nav-link" asp-area="" asp-controller="Home" asp-action="Get">Назад</a>
